@@ -30,6 +30,21 @@ app.get("/friends/:name", (req, res) => {
   }
 })
 
+app.get("/greet/:string/:number", (req, res) => {
+
+  const {string, number} = req.params
+  let stringToRepeat = string + " "
+
+  let newStr = stringToRepeat.repeat(number)
+  res.send(newStr)
+
+})
+
+app.get("*", (req, res) => {
+  res.send("te has perdido :( lo sentimos")
+})
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
